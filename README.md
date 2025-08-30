@@ -2,13 +2,13 @@
 
 ## 📖 Description
 
-To-Do List API เป็น RESTful API ที่พัฒนาโดยใช้ Golang สำหรับจัดการ Task Management (ระบบงานที่ต้องทำ) พร้อมด้วย Basic Authentication Middleware เพื่อจัดการผู้ใช้และงาน
+To-Do List API is a RESTful API built with Golang for managing tasks. It comes with Basic Authentication Middleware to handle user registration, login, and secure task management.
 
 ### ✨ Features
-- 👤 จัดการผู้ใช้ (สร้างผู้ใช้, เก็บ credentials)
-- ✅ จัดการงาน (สร้าง, อัพเดตสถานะ, ลบ)
-- 🔍 ดึงรายการงานทั้งหมด พร้อม filter ด้วย status
-- 📄 ดึงรายละเอียดงานตาม UID
+- 👤 User management (create users, store credentials)
+- ✅ Task management (create, update status, delete)
+- 🔍 Retrieve a list of tasks with optional status filter
+- 📄 Get detailed information for each task by UID
 
 ## 🏗️ API Endpoints
 
@@ -16,13 +16,13 @@ Base Path: /api/v1
 
 | Method | Endpoint          | Description                              | Auth Required |
 | ------ | ----------------- | ---------------------------------------- | ------------- |
-| POST   | `/users/register` | สมัครสมาชิกใหม่                          | ❌             |
-| POST   | `/users/login`    | เข้าสู่ระบบ (คืนค่า token)               | ❌             |
-| GET    | `/tasks`          | ดึงรายการ tasks (filter ด้วย status ได้) | ✅             |
-| GET    | `/tasks/:uid`      | ดึงรายละเอียด task ตาม `uid`              | ✅             |
-| POST   | `/tasks`          | สร้าง task ใหม่                          | ✅             |
-| PUT    | `/tasks/:uid`      | อัพเดตสถานะหรือแก้ไขรายละเอียดของ task   | ✅             |
-| DELETE | `/tasks/:uid`      | ลบ task ตาม `uid`                         | ✅             |
+| POST   | `/users/register` | Register a new user                      | ❌             |
+| POST   | `/users/login`    | Login (returns an authentication token)  | ❌             |
+| GET    | `/tasks`          | Get all tasks (can filter by status)     | ✅             |
+| GET    | `/tasks/:uid`      | Get task details by `uid`               | ✅             |
+| POST   | `/tasks`          | Create a new task                        | ✅             |
+| PUT    | `/tasks/:uid`      | Update a task’s status or details       | ✅             |
+| DELETE | `/tasks/:uid`      | Delete a task by `uid`                  | ✅             |
 
 ## ⚙️ Installation
 
@@ -33,7 +33,7 @@ git clone https://github.com/saharuth-nu/todo-api-golang.git
 cd todo-api-golang
 ```
 
-2. ติดตั้ง dependency
+2. Install dependencies
 
 ```bash
 go mod tidy
@@ -87,7 +87,7 @@ curl -X POST http://localhost:8080/api/v1/tasks \
 
 ```env
 # Example environment variables
-# TODO: เพิ่มรายละเอียดเช่น DB connection, JWT secret, App port ฯลฯ
+# TODO: Add details such as DB connection, JWT secret, App port, etc.
 PORT=8080
 DB_HOST=
 DB_PORT=
