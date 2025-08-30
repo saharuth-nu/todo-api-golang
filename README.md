@@ -83,7 +83,7 @@ curl -X POST http://localhost:8080/api/v1/tasks \
 
 ## 🔑 Environment Variables
 
-สร้างไฟล์ .env ที่ root ของโปรเจค
+Create a .env file at the root of the project:
 
 ```env
 # Example environment variables
